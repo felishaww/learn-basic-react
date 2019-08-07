@@ -1,44 +1,42 @@
 import React from "react";
 import { Button } from "antd";
 // const axios = require("axios");
-import axios from 'axios';
+//import axios from 'axios';
 
 
-/**
- * @todo
- * - Dibuat as Class
- * - Pemprosesan pengurangan dan pertambahan dipindahkan ke Another Component
- * - Ditambahkan perkalian didalamnya (dikalikan state = 5) as default;
- */
 
 class AnotherComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       number: 0,
-      multiply: 5
+      multiply: 1
     };
 
   }
 
   handleAddNumber = () => {
-    this.setState({ number: this.state.number + 1 } , () => {
+    this.setState({ number: this.state.number + 1 }, () => {
       this.props.handleUpdateNumber(this.state.number)
-  });
+    });
 
   };
 
   handleSubtractNumber = () => {
-    this.setState({ number: this.state.number - 1 } , () => {
-        this.props.handleUpdateNumber(this.state.number)
+    this.setState({ number: this.state.number - 1 }, () => {
+      this.props.handleUpdateNumber(this.state.number)
     });
   };
 
   handleMultiplyNumber = () => {
     this.setState({ number: this.state.number * this.state.multiply }, () => {
-        this.props.handleUpdateNumber(this.state.number)
+      this.props.handleUpdateNumber(this.state.number)
     });
   };
+
+  onChange = (e) => {
+    this.setState({ multiply: e.target.value });
+  }
 
   render() {
     console.log("props another component", this.props);
@@ -54,13 +52,26 @@ class AnotherComponent extends React.Component {
         >
           Kurang
         </Button>
-        <Button
-          onClick={this.handleMultiplyNumber}
-          className="coba"
-          type="danger"
-        >
-          multiply by 5
+       
+        <form>
+
+          <input
+            class="input"
+            id='name'
+            placeHolder="input multiplier"
+            type="number" value={this.state.multiply}
+            onChange={this.onChange}
+          />
+
+          <Button
+            onClick={this.handleMultiplyNumber}
+            className="coba"
+            type="primary"
+          >
+            multiply
         </Button>
+        </form>
+
       </div>
     );
   }
