@@ -81,7 +81,6 @@ class AnotherComponent extends React.Component {
             class="input"
             id='name'
             placeHolder="input multiplier"
-            type="number"
             value={this.state.multiply}
             onChange={this.onChange}
           />
