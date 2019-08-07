@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "antd";
 // const axios = require("axios");
 //import axios from 'axios';
+import MaskedInput from 'react-text-mask'
 
 
 
@@ -52,8 +53,8 @@ class AnotherComponent extends React.Component {
         >
           Kurang
         </Button>
-       
-        <form>
+
+        {/* <form>
 
           <input
             class="input"
@@ -70,7 +71,29 @@ class AnotherComponent extends React.Component {
           >
             multiply
         </Button>
-        </form>
+        </form> */}
+
+
+        <div>
+          <MaskedInput
+            mask={s => Array.from(s).map(() => /[0-9]/i)}
+            guide={false}
+            class="input"
+            id='name'
+            placeHolder="input multiplier"
+            type="number"
+            value={this.state.multiply}
+            onChange={this.onChange}
+          />
+          <Button
+            onClick={this.handleMultiplyNumber}
+            className="coba"
+            type="primary"
+          >
+            multiply
+        </Button>
+        </div>
+
 
       </div>
     );
