@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.invalid-feedback{
+  color:red;
+}
+
+.login-form{
+  max-width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.regist-from {
+  max-width : 400px;
+  margin:auto;
+  margin-top: 20px;
+}
+
+.login-form-forgot{
+  float:right;
+}
+.login-form-button{
+  width:100%
+}
